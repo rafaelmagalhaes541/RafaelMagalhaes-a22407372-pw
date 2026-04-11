@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "receita",
     "loja",
     "festivais",
+    "portfolio",
 ]
 
 MIDDLEWARE = [
