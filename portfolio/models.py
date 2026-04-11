@@ -25,7 +25,7 @@ class Aluno(models.Model):
 
 class Professor(models.Model):
     nome = models.CharField(max_length=100)
-    disciplina = models.CharField(max_length=100)
+    unidades_curriculares = models.ManyToManyField('UnidadeCurricular', blank=True)
 
     def __str__(self):
         return self.nome
@@ -57,7 +57,7 @@ class Projeto(models.Model):
 
 class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=100)
-    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
+    professores = models.ManyToManyField(Professor)
     descricao = models.CharField(max_length=200)
     creditos = models.IntegerField()
     imagem = models.ImageField(null=True, blank=True)

@@ -16,8 +16,9 @@ class AlunoAdmin(admin.ModelAdmin):
 
 @admin.register(Professor)
 class ProfessorAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'disciplina')
-    search_fields = ('nome', 'disciplina')
+    list_display = ('nome',)
+    search_fields = ('nome',)
+    filter_horizontal = ('unidades_curriculares',)
 
 @admin.register(Tecnologia)
 class TecnologiaAdmin(admin.ModelAdmin):
@@ -34,9 +35,9 @@ class ProjetoAdmin(admin.ModelAdmin):
 
 @admin.register(UnidadeCurricular)
 class UnidadeCurricularAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'professor', 'creditos')
+    list_display = ('nome', 'creditos')
     search_fields = ('nome',)
-    list_filter = ('professor',)
+    filter_horizontal = ('professores',)
     filter_horizontal = ('projetos',)
 
 @admin.register(TFC)
