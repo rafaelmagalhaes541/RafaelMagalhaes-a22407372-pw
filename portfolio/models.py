@@ -14,7 +14,7 @@ class Licenciatura(models.Model):
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
-    numero = models.IntegerField()
+    numero = models.DecimalField(max_digits=8, decimal_places=0)
     ano = models.IntegerField()
     licenciatura = models.ForeignKey(Licenciatura, on_delete=models.CASCADE)
     formacao_texto = models.CharField(max_length=150)
