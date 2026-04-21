@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("escola/", include("escola.urls")),
+    path("", include("escola.urls")),
 ]
 
 # Serve ficheiros media em DEBUG
