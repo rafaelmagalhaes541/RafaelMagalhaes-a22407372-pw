@@ -1,7 +1,5 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
 <h2>Professores</h2>
 
@@ -9,21 +7,17 @@
     {% for professor in professores %}
     <article>
         <header>
-            <h3>{{ professor }}</h3>
+            <h3>{{ professor.nome }}</h3>
         </header>
 
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h4>Unidades Curriculares</h4>
+        <ul>
+            {% for uc in professor.unidades_curriculares.all %}
+                <li>{{ uc.nome }}</li>
+            {% empty %}
+                <li>Sem unidades</li>
+            {% endfor %}
+        </ul>
     </article>
     {% endfor %}
 </section>

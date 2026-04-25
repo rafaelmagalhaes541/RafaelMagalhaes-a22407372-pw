@@ -1,29 +1,17 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
-<h2>TFCs</h2>
+<h2>TFC</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for tfc in tfcs %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
-
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h3>{{ tfc.titulo }}</h3>
+        <p>{{ tfc.descricao }}</p>
+        <p>Autor: {{ tfc.autor }}</p>
+        <p>Orientador: {{ tfc.orientador }}</p>
+        <p>Ano: {{ tfc.ano }}</p>
+        <p>Tema: {{ tfc.tema }}</p>
     </article>
     {% endfor %}
 </section>

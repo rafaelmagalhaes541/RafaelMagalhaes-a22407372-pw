@@ -1,29 +1,28 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
 <h2>Unidades Curriculares</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for uc in unidades %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
+        <h3>{{ uc.nome }}</h3>
+        <p>{{ uc.descricao }}</p>
+        <p>Créditos: {{ uc.creditos }}</p>
 
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h4>Professores</h4>
+        <ul>
+            {% for prof in uc.professores.all %}
+                <li>{{ prof.nome }}</li>
+            {% endfor %}
+        </ul>
+
+        <h4>Projetos</h4>
+        <ul>
+            {% for proj in uc.projetos.all %}
+                <li>{{ proj.titulo }}</li>
+            {% endfor %}
+        </ul>
     </article>
     {% endfor %}
 </section>

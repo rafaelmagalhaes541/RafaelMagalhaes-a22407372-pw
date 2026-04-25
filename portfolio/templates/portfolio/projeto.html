@@ -1,29 +1,23 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
 <h2>Projetos</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for projeto in projetos %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
+        <h3>{{ projeto.titulo }}</h3>
+        <p>{{ projeto.descricao }}</p>
+        <p>Data: {{ projeto.data_de_realizacao }}</p>
 
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h4>Tecnologias</h4>
+        <ul>
+            {% for tech in projeto.tecnologias.all %}
+                <li>{{ tech.nome }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ projeto.link }}">Ver projeto</a>
     </article>
     {% endfor %}
 </section>

@@ -1,29 +1,16 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
 <h2>Tecnologias</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for tech in tecnologias %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
-
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h3>{{ tech.nome }}</h3>
+        <p>Tipo: {{ tech.tipo }}</p>
+        <p>{{ tech.descricao }}</p>
+        <p>Interesse: {{ tech.interesse }}/10</p>
+        <a href="{{ tech.site }}">Site</a>
     </article>
     {% endfor %}
 </section>

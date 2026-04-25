@@ -1,29 +1,15 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
 <h2>Licenciaturas</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for lic in licenciaturas %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
-
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h3>{{ lic.nome }}</h3>
+        <p>Duração: {{ lic.duracao }} anos</p>
+        <p>Créditos: {{ lic.creditos }}</p>
+        <p>{{ lic.informacao }}</p>
     </article>
     {% endfor %}
 </section>

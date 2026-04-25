@@ -1,29 +1,17 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
-<h2>MakingOf</h2>
+<h2>Making Of</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for m in makingofs %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
-
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h3>{{ m.tipo }}</h3>
+        <p>{{ m.descricao }}</p>
+        <p><strong>Justificação:</strong> {{ m.justificacao }}</p>
+        <p><strong>Solução:</strong> {{ m.solucao }}</p>
+        <p><strong>Uso de IA:</strong> {{ m.uso_ia }}</p>
+        <p>{{ m.descricao_uso_ia }}</p>
     </article>
     {% endfor %}
 </section>

@@ -1,29 +1,22 @@
-<!-- templates/escola/alunos.html -->    
-
 {% extends "portfolio/base.html" %}
-    
+
 {% block content %}
 <h2>Competências</h2>
 
 <section>
-    {% for professor in professores %}
+    {% for comp in competencias %}
     <article>
-        <header>
-            <h3>{{ professor }}</h3>
-        </header>
+        <h3>{{ comp.nome }}</h3>
+        <p>Tipo: {{ comp.tipo }}</p>
+        <p>Nível: {{ comp.nivel }}/10</p>
+        <p>Experiência: {{ comp.experiencia }}/5</p>
 
-        <section>
-            <h4>Cursos</h4>
-            <ul>
-                {% for curso in professor.cursos.all %}
-                    <li>
-                        <a href="{% url 'curso' curso.id %}">
-                        {{ curso }}
-                        </a>
-                    </li>
-               {% endfor %}
-            </ul>
-        </section>
+        <h4>Projetos</h4>
+        <ul>
+            {% for proj in comp.projetos.all %}
+                <li>{{ proj.titulo }}</li>
+            {% endfor %}
+        </ul>
     </article>
     {% endfor %}
 </section>
