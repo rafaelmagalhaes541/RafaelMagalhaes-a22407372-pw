@@ -25,4 +25,5 @@ urlpatterns = [
     path('tecnologia/<int:pk>/apagar/', views.tecnologia_delete, name='tecnologia_delete'),
     path('tfc/', views.tfc_view, name='tfc'),
     path('unidadecurricular/', views.unidadecurricular_view, name='unidadecurricular'),
+    path('sobre/', views.sobre, name='sobre'),
 ]

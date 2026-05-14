@@ -236,3 +236,6 @@ def unidadecurricular_view(request):
         .all()
     )
     return render(request, 'portfolio/unidadecurricular.html', {'unidades': unidades})
+
+def sobre(request):
+    return render(request, 'portfolio/sobre.html')

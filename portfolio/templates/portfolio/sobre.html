@@ -1,0 +1,176 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>Sobre esta Aplicação</h1>
+
+<style>
+    section {
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #fafafa;
+    }
+
+    h1, h2, h3 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 12px;
+        line-height: 1.6;
+    }
+
+    ul, ol {
+        margin-bottom: 12px;
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 6px;
+    }
+
+    img {
+        display: block;
+        margin: 15px 0;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    iframe {
+        margin-top: 15px;
+        max-width: 100%;
+    }
+
+    pre {
+        background: #f4f4f4;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-top: 10px;
+    }
+</style>
+
+<!-- 1. MVT -->
+<section>
+    <h2>1. Arquitetura MVT do Django</h2>
+
+    <h3>O que é?</h3>
+    <p>
+        O Django segue o padrão MVT (Model-View-Template), onde cada componente tem uma função específica.
+    </p>
+
+    <h3>Componentes</h3>
+    <ul>
+        <li><b>Model</b> → Dados e base de dados</li>
+        <li><b>View</b> → Lógica da aplicação</li>
+        <li><b>Template</b> → Interface (HTML)</li>
+    </ul>
+
+    <h3>Fluxo</h3>
+    <ol>
+        <li>URL é chamada</li>
+        <li>View processa pedido</li>
+        <li>Model fornece dados</li>
+        <li>Template apresenta resultado</li>
+    </ol>
+
+    <h3>Diagrama MVT</h3>
+    <img src="{% static 'img/mvt.jpg' %}" alt="MVT">
+</section>
+
+<!-- vídeo -->
+<section>
+    <h2>Vídeo explicativo</h2>
+
+    <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/ID_DO_VIDEO"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+</section>
+
+<!-- MODELACAO -->
+<section>
+    <h2>2. Modelação da Aplicação</h2>
+
+    <h3>Diagrama Entidade-Relacionamento</h3>
+    <img src="{% static 'img/er.png' %}" alt="ER Diagram">
+
+    <h3>Models.py</h3>
+
+    <pre>
+class Projeto(models.Model):
+    titulo = models.CharField(max_length=200)
+    descricao = models.TextField()
+
+class Competencia(models.Model):
+    nome = models.CharField(max_length=100)
+    nivel = models.IntegerField()
+    projetos = models.ManyToManyField(Projeto)
+    </pre>
+</section>
+
+<!-- TECNOLOGIAS -->
+<section>
+    <h2>3. Tecnologias utilizadas</h2>
+
+    <h3>Backend</h3>
+    <ul>
+        <li>Django</li>
+        <li>Python</li>
+    </ul>
+
+    <h3>Frontend</h3>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <h3>Base de dados</h3>
+    <ul>
+        <li>SQLite</li>
+    </ul>
+
+    <h3>Outros</h3>
+    <ul>
+        <li>Git</li>
+        <li>GitHub</li>
+    </ul>
+</section>
+
+<!-- ESTRUTURA -->
+<section>
+    <h2>4. Estrutura da aplicação</h2>
+
+    <pre>
+Home
+ ├── Projetos
+ │    ├── Criar
+ │    ├── Editar
+ ├── Competências
+ ├── Formação
+ ├── Sobre
+    </pre>
+</section>
+
+<!-- GITHUB -->
+<section>
+    <h2>5. Repositório GitHub</h2>
+
+    <p>
+        Este projeto foi desenvolvido com Git e GitHub para controlo de versões.
+    </p>
+
+    <p>
+        Permite histórico de alterações e colaboração.
+    </p>
+
+    <a href="https://github.com/TEU_REPO" target="_blank">
+        Ver repositório
+    </a>
+</section>
+
+{% endblock %}
