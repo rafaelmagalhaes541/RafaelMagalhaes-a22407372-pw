@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
+from .forms import ProjetoForm
 from .models import *
 
 
@@ -55,6 +57,35 @@ def projeto_view(request):
         .all()
     )
     return render(request, 'portfolio/projeto.html', {'projetos': projetos})
+
+def projeto_create(request):
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('projeto') 
+    else:
+        form = ProjetoForm()
+
+    return render(request, 'portfolio/projeto_form.html', {'form': form})
+
+def projeto_update(request, pk):
+    projeto = get_object_or_404(Projeto, pk=pk)
+
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST, instance=projeto)
+        if form.is_valid():
+            form.save()
+            return redirect('projeto')
+    else:
+        form = ProjetoForm(instance=projeto)
+
+    return render(request, 'portfolio/projeto_form.html', {'form': form})
+
+def projeto_delete(request, pk):
+    projeto = get_object_or_404(Projeto, pk=pk)
+    projeto.delete()
+    return redirect('projeto')
 
 
 def tecnologia_view(request):

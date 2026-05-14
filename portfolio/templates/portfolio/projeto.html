@@ -2,22 +2,33 @@
 
 {% block content %}
 <h2>Projetos</h2>
+<div class="page-actions">
+    <a href="{% url 'projeto_create' %}" class="btn-secondary">Novo Projeto</a>
+</div>
 
 <section>
     {% for projeto in projetos %}
     <article>
         <h3>{{ projeto.titulo }}</h3>
         <p>{{ projeto.descricao }}</p>
+        
         <p>Data: {{ projeto.data_de_realizacao }}</p>
 
         <h4>Tecnologias</h4>
         <ul>
             {% for tech in projeto.tecnologias.all %}
-                <li>{{ tech.nome }}</li>
+            <li>{{ tech.nome }}</li>
             {% endfor %}
         </ul>
 
         <a href="{{ projeto.link }}">Ver projeto</a>
+
+        <button type="submit" class="btn-secondary">
+            <a href="{% url 'projeto_update' projeto.pk %}">✏️ Editar</a>
+        </button>
+        <button type="submit" class="btn-secondary">
+            <a href="{% url 'projeto_delete' projeto.pk %}">❌ Apagar</a>
+        </button>
     </article>
     {% endfor %}
 </section>
