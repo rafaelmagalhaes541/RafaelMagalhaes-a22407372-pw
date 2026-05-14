@@ -4,8 +4,9 @@
 
 <div class="container">
     <div class="form-card">
-        <h2>📁 Novo Projeto</h2>
-        <p class="subtitle">Preenche os dados do projeto</p>
+
+        <h2>{{ titulo }}</h2>
+        <p class="subtitle">{{ subtitulo }}</p>
 
         <form method="post">
             {% csrf_token %}
@@ -19,11 +20,13 @@
                     💾 Guardar
                 </button>
 
-                <a href="{% url 'projeto' %}" class="btn-secondary">
+                <a href="{{ voltar_url }}" class="btn-secondary">
                     ⬅ Voltar
                 </a>
             </div>
+
         </form>
+
     </div>
 </div>
 

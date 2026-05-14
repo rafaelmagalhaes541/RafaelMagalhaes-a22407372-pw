@@ -2,7 +2,9 @@
 
 {% block content %}
 <h2>Formações</h2>
-
+<div class="page-actions">
+    <a href="{% url 'formacao_create' %}" class="btn-secondary">Nova Formação</a>
+</div>
 <section>
     {% for form in formacoes %}
     <article>
@@ -11,6 +13,14 @@
         <p>Instituição: {{ form.instituicao }}</p>
         <p>Aluno: {{ form.aluno }}</p>
         <p>{{ form.descricao }}</p>
+        <div class="card-actions">
+            <a class="btn-secondary" href="{% url 'formacao_update' form.pk %}">
+                ✏️ Editar
+            </a>
+            <a class="btn-secondary" href="{% url 'formacao_delete' form.pk %}">
+                ❌ Apagar
+            </a>
+        </div>
     </article>
     {% endfor %}
 </section>

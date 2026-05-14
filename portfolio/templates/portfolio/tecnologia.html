@@ -2,6 +2,9 @@
 
 {% block content %}
 <h2>Tecnologias</h2>
+<div class="page-actions">
+    <a href="{% url 'tecnologia_create' %}" class="btn-secondary">Nova Tecnologia</a>
+</div>
 
 <section>
     {% for tech in tecnologias %}
@@ -11,6 +14,14 @@
         <p>{{ tech.descricao }}</p>
         <p>Interesse: {{ tech.interesse }}/10</p>
         <a href="{{ tech.site }}">Site</a>
+        <div class="card-actions">
+            <a class="btn-secondary" href="{% url 'tecnologia_update' tech.pk %}">
+                ✏️ Editar
+            </a>
+            <a class="btn-secondary" href="{% url 'tecnologia_delete' tech.pk %}">
+                ❌ Apagar
+            </a>
+        </div>
     </article>
     {% endfor %}
 </section>

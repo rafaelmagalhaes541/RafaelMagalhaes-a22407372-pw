@@ -87,6 +87,10 @@ section > article:hover {
 }
 
 /* HEADER DO CARD */
+article {
+    position: relative;
+}
+
 article > header {
     margin-bottom: 12px;
 }
@@ -214,6 +218,15 @@ footer {
 
 .btn-secondary:hover {
     background-color: #ccc;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    display: flex;
+    gap: 10px;
 }
 
 /* LINKS EM GERAL DENTRO DE CARDS */

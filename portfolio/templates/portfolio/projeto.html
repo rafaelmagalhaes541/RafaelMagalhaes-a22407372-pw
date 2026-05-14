@@ -23,12 +23,14 @@
 
         <a href="{{ projeto.link }}">Ver projeto</a>
 
-        <button type="submit" class="btn-secondary">
-            <a href="{% url 'projeto_update' projeto.pk %}">✏️ Editar</a>
-        </button>
-        <button type="submit" class="btn-secondary">
-            <a href="{% url 'projeto_delete' projeto.pk %}">❌ Apagar</a>
-        </button>
+        <div class="card-actions">
+            <a class="btn-secondary" href="{% url 'projeto_update' projeto.pk %}">
+                ✏️ Editar
+            </a>
+            <a class="btn-secondary" href="{% url 'projeto_delete' projeto.pk %}">
+                ❌ Apagar
+            </a>
+        </div>
     </article>
     {% endfor %}
 </section>
