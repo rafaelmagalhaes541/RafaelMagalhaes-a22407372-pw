@@ -17,12 +17,22 @@
     </form>
 
     {% if erro %}
-        <p class="auth-error">{{ erro }}</p>
+    <p class="auth-error">{{ erro }}</p>
     {% endif %}
 
     <div class="auth-links">
         <a href="{% url 'registo' %}">Criar conta</a>
     </div>
+
+    <hr>
+
+    <h3>Entrar com link mágico</h3>
+
+    <form method="post" action="{% url 'magic_request' %}">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Email">
+        <button type="submit">Enviar link</button>
+    </form>
 </div>
 
 {% endblock %}

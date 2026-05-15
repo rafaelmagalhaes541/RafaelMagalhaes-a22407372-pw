@@ -1,0 +1,7 @@
+<h2>Login com link mágico</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Email">
+    <button>Enviar link</button>
+</form>

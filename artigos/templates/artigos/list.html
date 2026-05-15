@@ -1,0 +1,104 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'artigos/stly.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="artigos-container">
+
+    <header class="artigos-header">
+        <h2>📚 Artigos</h2>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'artigo_create' %}" class="btn btn-primary">
+                + Novo Artigo
+            </a>
+        {% endif %}
+    </header>
+
+    {% for artigo in artigos %}
+
+    <article class="artigo-card">
+
+        <div class="artigo-topo">
+            <h3 class="artigo-titulo">{{ artigo.titulo }}</h3>
+
+            <div class="artigo-meta">
+                <span>👤 {{ artigo.autor.username }}</span>
+                <span>•</span>
+                <span>📅 {{ artigo.data_criacao|date:"d M Y" }}</span>
+            </div>
+        </div>
+
+        {% if artigo.fotografia %}
+            <div class="artigo-imagem">
+                <img src="{{ artigo.fotografia.url }}" alt="{{ artigo.titulo }}">
+            </div>
+        {% endif %}
+
+        <div class="artigo-texto">
+            <p>{{ artigo.texto|truncatewords:35 }}</p>
+        </div>
+
+        {% if artigo.link_externo %}
+            <a href="{{ artigo.link_externo }}" target="_blank" class="artigo-link">
+                Ver mais
+            </a>
+        {% endif %}
+
+        <div class="artigo-acoes">
+
+            <a href="{% url 'like_artigo' artigo.pk %}" class="btn-like">
+                👍 {{ artigo.likes.count }}
+            </a>
+
+            {% if user == artigo.autor %}
+                <a href="{% url 'artigo_update' artigo.pk %}" class="btn-edit">
+                    ✏️ Editar
+                </a>
+            {% endif %}
+
+        </div>
+
+        <section class="artigo-comentarios">
+
+            <h4>💬 Comentários</h4>
+
+            {% for c in artigo.comentarios.all %}
+                <div class="comentario">
+                    <strong>{{ c.utilizador.username }}</strong>
+                    <span class="comentario-data">{{ c.data_criacao|date:"d M Y H:i" }}</span>
+                    <p>{{ c.texto }}</p>
+                </div>
+            {% empty %}
+                <p class="sem-comentarios">Ainda não existem comentários.</p>
+            {% endfor %}
+
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'comentar' artigo.pk %}" class="comentario-form">
+                    {% csrf_token %}
+                    <input type="text" name="texto" placeholder="Escreve um comentário..." required>
+                    <button type="submit">Comentar</button>
+                </form>
+            {% else %}
+                <p class="login-msg">
+                    <a href="{% url 'login' %}">Inicia sessão</a> para comentar.
+                </p>
+            {% endif %}
+
+        </section>
+
+    </article>
+
+    {% empty %}
+        <div class="sem-artigos">
+            <p>Nenhum artigo publicado ainda.</p>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

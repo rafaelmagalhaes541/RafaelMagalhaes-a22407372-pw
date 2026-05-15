@@ -1,0 +1,60 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h2>
+            {% if form.instance.pk %}
+                ✏️ Editar Artigo
+            {% else %}
+                Criar Novo Artigo
+            {% endif %}
+        </h2>
+
+        <form method="post" enctype="multipart/form-data" class="artigo-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.titulo.id_for_label }}">Título</label>
+                {{ form.titulo }}
+                {{ form.titulo.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.texto.id_for_label }}">Texto</label>
+                {{ form.texto }}
+                {{ form.texto.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.fotografia.id_for_label }}">Fotografia</label>
+                {{ form.fotografia }}
+                {{ form.fotografia.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.link_externo.id_for_label }}">Link externo (opcional)</label>
+                {{ form.link_externo }}
+                {{ form.link_externo.errors }}
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    💾 Guardar
+                </button>
+
+                <a href="{% url 'artigo_list' %}" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
