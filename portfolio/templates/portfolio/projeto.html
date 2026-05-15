@@ -2,9 +2,12 @@
 
 {% block content %}
 <h2>Projetos</h2>
+
+{% if is_gestor %}
 <div class="page-actions">
     <a href="{% url 'projeto_create' %}" class="btn-secondary">Novo Projeto</a>
 </div>
+{% endif %}
 
 <section>
     {% for projeto in projetos %}
@@ -22,7 +25,8 @@
         </ul>
 
         <a href="{{ projeto.link }}">Ver projeto</a>
-
+        
+        {% if is_gestor %}
         <div class="card-actions">
             <a class="btn-secondary" href="{% url 'projeto_update' projeto.pk %}">
                 ✏️ Editar
@@ -31,6 +35,8 @@
                 ❌ Apagar
             </a>
         </div>
+        {% endif %}
+
     </article>
     {% endfor %}
 </section>

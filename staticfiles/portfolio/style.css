@@ -4,15 +4,44 @@
     padding: 0;
 }
 
+/* LINKS GLOBAIS */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #2563eb;
+}
+
+/* LINKS EM GERAL DENTRO DE CARDS */
+article a {
+    text-decoration: none;
+    color: #2563eb;
+}
+
+article a:hover {
+    color: #1e40af;
+}
+
+/* LISTAS GLOBAIS */
+ul, ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
 /* BODY */
 body {
     font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
     background: #e6ebf2;
-    color: #320a9e;
+    color: #111827;
     line-height: 1.5;
+    scroll-behavior: smooth;
 }
 
-/* HEADER PRINCIPAL DO WEBSITE (de base.html) */
+/* HEADER */
 body > header {
     background: #1f2937;
     color: white;
@@ -30,7 +59,6 @@ body > header nav {
 body > header nav a {
     color: #d1d5db;
     margin-right: 20px;
-    text-decoration: none;
     font-weight: 500;
 }
 
@@ -45,13 +73,13 @@ main {
     padding: 0 20px;
 }
 
-/* TÍTULO DA PÁGINA */
+/* TITULOS */
 h2 {
     margin-bottom: 20px;
     font-size: 26px;
 }
 
-/* GRID DE CURSOS */
+/* CARDS */
 section > article {
     background: white;
     padding: 20px;
@@ -60,6 +88,7 @@ section > article {
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: all 0.25s ease;
     margin-bottom: 20px;
+    margin-top: 25px;
 }
 
 section > article:hover {
@@ -68,6 +97,10 @@ section > article:hover {
 }
 
 /* HEADER DO CARD */
+article {
+    position: relative;
+}
+
 article > header {
     margin-bottom: 12px;
 }
@@ -83,7 +116,7 @@ article > header > p {
     color: #374151;
 }
 
-/* SEÇÃO DO CARD */
+/* SECÇÕES */
 article > section {
     margin-top: 10px;
 }
@@ -96,31 +129,26 @@ article > section > h4 {
     letter-spacing: 0.05em;
 }
 
-/* LISTA DE ELEMENTOS do CARD */
+/* TAGS (tecnologias) */
 article > section > ul {
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-/* ITEM */
 article > section > ul > li {
     background: #2563eb;
     color: white;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 500;
-}
-
-article > section > ul > li > a {
-    text-decoration: none;
-    color: white;
+    transition: all 0.2s ease;
 }
 
 article > section > ul > li:hover {
-    background-color: #374151;
+    background-color: #1e40af;
+    transform: translateY(-2px);
 }
 
 /* FOOTER */
@@ -132,7 +160,7 @@ footer {
     margin-top: 40px;
 }
 
-/* Forms */
+/* FORMULÁRIOS */
 .container {
     display: flex;
     justify-content: center;
@@ -182,6 +210,7 @@ footer {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 .btn-primary:hover {
@@ -190,12 +219,54 @@ footer {
 
 .btn-secondary {
     text-decoration: none;
-    background-color: #ddd;
+    background-color: lightblue;
     padding: 10px 18px;
     border-radius: 6px;
     color: black;
+    transition: background 0.2s ease;
 }
 
 .btn-secondary:hover {
     background-color: #ccc;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    display: flex;
+    gap: 10px;
+}
+
+body > header nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+body > header nav span {
+    margin-left: auto;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* ESPAÇAMENTO INTERNO DOS TEXTOS NOS CARDS */
+article p {
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+/* LISTAS DENTRO DOS CARDS */
+article ul,
+article ol {
+    margin-left: 15px;
+    margin-top: 8px;
+}
+
+/* TEXTO GERAL DENTRO DO CARD */
+article {
+    padding-left: 25px;
+    padding-right: 20px;
 }

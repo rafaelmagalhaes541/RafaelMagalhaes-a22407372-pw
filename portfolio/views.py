@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProjetoForm, TecnologiaForm, CompetenciaForm, FormacaoForm
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 
@@ -19,8 +19,11 @@ def competencia_view(request):
         .prefetch_related('projetos')
         .all()
     )
-    return render(request, 'portfolio/competencia.html', {'competencias': competencias})
+    is_gestor = request.user.is_authenticated and request.user.groups.filter(name='gestor-portfolio').exists()
+    
+    return render(request, 'portfolio/competencia.html', {'competencias': competencias, 'is_gestor': is_gestor})
 
+@login_required
 def competencia_create(request):
     if request.method == 'POST':
         form = CompetenciaForm(request.POST)
@@ -37,6 +40,7 @@ def competencia_create(request):
     'voltar_url': '/portfolio/competencia/'
     })
 
+@login_required
 def competencia_update(request, pk):
     competencia = get_object_or_404(Competencia, pk=pk)
 
@@ -55,6 +59,7 @@ def competencia_update(request, pk):
     'voltar_url': '/portfolio/competencia/'
     })
 
+@login_required
 def competencia_delete(request, pk):
     competencia = get_object_or_404(Competencia, pk=pk)
     competencia.delete()
@@ -67,8 +72,11 @@ def formacao_view(request):
         .select_related('aluno')
         .all()
     )
-    return render(request, 'portfolio/formacao.html', {'formacoes': formacoes})
+    is_gestor = request.user.is_authenticated and request.user.groups.filter(name='gestor-portfolio').exists()
+    
+    return render(request, 'portfolio/formacao.html', {'formacoes': formacoes, 'is_gestor': is_gestor})
 
+@login_required
 def formacao_create(request):
     if request.method == 'POST':
         form = FormacaoForm(request.POST)
@@ -85,6 +93,7 @@ def formacao_create(request):
     'voltar_url': '/portfolio/formacao/'
     })
 
+@login_required
 def formacao_update(request, pk):
     formacao = get_object_or_404(Formacao, pk=pk)
 
@@ -103,6 +112,7 @@ def formacao_update(request, pk):
         'voltar_url': '/portfolio/formacao/'
     })
 
+@login_required
 def formacao_delete(request, pk):
     formacao = get_object_or_404(Formacao, pk=pk)
     formacao.delete()
@@ -134,8 +144,11 @@ def projeto_view(request):
         .prefetch_related('tecnologias')
         .all()
     )
-    return render(request, 'portfolio/projeto.html', {'projetos': projetos})
+    is_gestor = request.user.is_authenticated and request.user.groups.filter(name='gestor-portfolio').exists()
 
+    return render(request, 'portfolio/projeto.html', {'projetos': projetos, 'is_gestor': is_gestor})
+
+@login_required
 def projeto_create(request):
     if request.method == 'POST':
         form = ProjetoForm(request.POST)
@@ -152,6 +165,7 @@ def projeto_create(request):
         'voltar_url': '/portfolio/projeto/'
     })
 
+@login_required
 def projeto_update(request, pk):
     projeto = get_object_or_404(Projeto, pk=pk)
 
@@ -170,6 +184,7 @@ def projeto_update(request, pk):
         'voltar_url': '/portfolio/projeto/'
     })
 
+@login_required
 def projeto_delete(request, pk):
     projeto = get_object_or_404(Projeto, pk=pk)
     projeto.delete()
@@ -178,8 +193,11 @@ def projeto_delete(request, pk):
 
 def tecnologia_view(request):
     tecnologias = Tecnologia.objects.all()
-    return render(request, 'portfolio/tecnologia.html', {'tecnologias': tecnologias})
+    is_gestor = request.user.is_authenticated and request.user.groups.filter(name='gestor-portfolio').exists()
+    
+    return render(request, 'portfolio/tecnologia.html', {'tecnologias': tecnologias, 'is_gestor': is_gestor})
 
+@login_required
 def tecnologia_create(request):
     if request.method == 'POST':
         form = TecnologiaForm(request.POST)
@@ -196,6 +214,7 @@ def tecnologia_create(request):
         'voltar_url': '/portfolio/tecnologia/'
     })
 
+@login_required
 def tecnologia_update(request, pk):
     tecnologia = get_object_or_404(Tecnologia, pk=pk)
 
@@ -211,9 +230,10 @@ def tecnologia_update(request, pk):
         'form': form,
         'titulo': '✏️ Editar Tecnologia',
         'subtitulo': 'Altera os dados da tecnologia',
-        'voltar_url': '/portfolio/tecnologias/'
+        'voltar_url': '/portfolio/tecnologia/'
     })
 
+@login_required
 def tecnologia_delete(request, pk):
     tecnologia = get_object_or_404(Tecnologia, pk=pk)
     tecnologia.delete()

@@ -2,9 +2,12 @@
 
 {% block content %}
 <h2>Competências</h2>
+
+{% if is_gestor %}
 <div class="page-actions">
     <a href="{% url 'competencia_create' %}" class="btn-secondary">Nova Competência</a>
 </div>
+{% endif %}
 
 <section>
     {% for comp in competencias %}
@@ -20,6 +23,8 @@
                 <li>{{ proj.titulo }}</li>
             {% endfor %}
         </ul>
+
+        {% if is_gestor %}
         <div class="card-actions">
             <a class="btn-secondary" href="{% url 'competencia_update' comp.pk %}">
                 ✏️ Editar
@@ -28,6 +33,8 @@
                 ❌ Apagar
             </a>
         </div>
+        {% endif %}
+
     </article>
     {% endfor %}
 </section>

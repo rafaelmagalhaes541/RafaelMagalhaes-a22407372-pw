@@ -1,0 +1,23 @@
+{% extends "accounts/base.html" %}
+
+<h1>Registo</h1>
+
+{% block content %}
+
+<div class="auth-container">
+    <h2>Registo</h2>
+
+    <form method="post" class="auth-form">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Registar</button>
+    </form>
+
+    <div class="auth-links">
+        <a href="{% url 'login' %}">Já tens conta? Login</a>
+    </div>
+</div>
+
+{% endblock %}

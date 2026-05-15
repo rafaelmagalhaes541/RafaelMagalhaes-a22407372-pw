@@ -15,6 +15,24 @@ a:hover {
     color: #2563eb;
 }
 
+/* LINKS EM GERAL DENTRO DE CARDS */
+article a {
+    display: inline-block;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: white;
+    background-color: #5a8af1;
+    margin-top: 12px;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+article a:hover {
+    background-color: #1e40af;
+}
+
 /* LISTAS GLOBAIS */
 ul, ol {
     list-style: none;
@@ -229,12 +247,45 @@ footer {
     gap: 10px;
 }
 
-/* LINKS EM GERAL DENTRO DE CARDS */
-article a {
-    text-decoration: none;
-    color: #2563eb;
+/* ESPAÇAMENTO INTERNO DOS TEXTOS NOS CARDS */
+article p {
+    margin-left: 35px;
 }
 
-article a:hover {
-    color: #1e40af;
+/* LISTAS DENTRO DOS CARDS */
+article ul,
+article ol {
+    margin-left: 35px;
+}
+
+/* TEXTO GERAL DENTRO DO CARD */
+article {
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+header {
+    position: relative;
+}
+
+.auth {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.auth a {
+    background: #2563eb;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.auth a:hover {
+    transform: translateY(-2px);
+    background: #1e40af;
 }
