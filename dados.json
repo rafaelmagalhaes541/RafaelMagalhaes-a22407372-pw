@@ -1,0 +1,396 @@
+[
+    {
+        "model": "artigos.artigo",
+        "pk": 1,
+        "fields": {
+            "titulo": "Borboletas raras",
+            "texto": "São borboletas que são muito bonitas e raras",
+            "fotografia": "artigos/a056236f88e2c2a6b4e8d8f760e23cb5.jpg",
+            "link_externo": "https://www.google.com/search?sca_esv=73ef07b7d3365f29&sxsrf=ANbL-n6tEIIiZ_Gdq3MtWnRpkjIBIDTR0Q%3A1778882327112&q=borboletas+raras&source=lnms&fbs=ADc_l-acAb_3MMOAUx0zmbUpgBqRiigBgL2I_pgQa-94zvB054Dys",
+            "data_criacao": "2026-05-15T21:59:26.118Z",
+            "autor": 2
+        }
+    },
+    {
+        "model": "artigos.artigo",
+        "pk": 2,
+        "fields": {
+            "titulo": "Carros raros",
+            "texto": "São carros de 4 rodas muito raros",
+            "fotografia": "artigos/i531867.jpeg",
+            "link_externo": "https://www.google.com/search?sca_esv=73ef07b7d3365f29&sxsrf=ANbL-n7M5F4679IFpooH46_apESbNbVvQw:1778883560335&udm=2&fbs=ADc_l-acAb_3MMOAUx0zmbUpgBqRiigBgL2I_pgQa-94zvB054Dys3s2x_Qm_GJcU2DlSXgs4i471_5v",
+            "data_criacao": "2026-05-15T22:19:48.205Z",
+            "autor": 2
+        }
+    },
+    {
+        "model": "artigos.like",
+        "pk": 1,
+        "fields": {
+            "artigo": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "artigos.like",
+        "pk": 3,
+        "fields": {
+            "artigo": 1,
+            "user": 2
+        }
+    },
+    {
+        "model": "artigos.comentario",
+        "pk": 1,
+        "fields": {
+            "artigo": 1,
+            "user": 1,
+            "texto": "Wow, borboletas lindas e raras",
+            "data": "2026-05-15T22:00:14.367Z"
+        }
+    },
+    {
+        "model": "artigos.comentario",
+        "pk": 2,
+        "fields": {
+            "artigo": 1,
+            "user": 2,
+            "texto": "Que Locuraaaaaa",
+            "data": "2026-05-15T22:18:03.407Z"
+        }
+    },
+    {
+        "model": "escola.professor",
+        "pk": 1,
+        "fields": {
+            "nome": "Lucio Struder",
+            "email": "luciostruder@gmail.com"
+        }
+    },
+    {
+        "model": "escola.aluno",
+        "pk": 1,
+        "fields": {
+            "nome": "Rafael Magalhães",
+            "numero": "22407372"
+        }
+    },
+    {
+        "model": "escola.aluno",
+        "pk": 2,
+        "fields": {
+            "nome": "Diogo Alves",
+            "numero": "22407390"
+        }
+    },
+    {
+        "model": "escola.aluno",
+        "pk": 3,
+        "fields": {
+            "nome": "Diogo Sá",
+            "numero": "22409245"
+        }
+    },
+    {
+        "model": "escola.curso",
+        "pk": 1,
+        "fields": {
+            "nome": "Django",
+            "imagem": "cursos/django.png",
+            "professor": 1,
+            "alunos": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "escola.curso",
+        "pk": 2,
+        "fields": {
+            "nome": "Next",
+            "imagem": "cursos/next.png",
+            "professor": 1,
+            "alunos": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "escola.curso",
+        "pk": 3,
+        "fields": {
+            "nome": "SpringBoot",
+            "imagem": "cursos/springboot.png",
+            "professor": 1,
+            "alunos": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "escola.curso",
+        "pk": 4,
+        "fields": {
+            "nome": "Vue",
+            "imagem": "cursos/vue.png",
+            "professor": 1,
+            "alunos": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "portfolio.licenciatura",
+        "pk": 1,
+        "fields": {
+            "nome": "Engenharia Informática",
+            "duracao": 3,
+            "creditos": 180,
+            "informacao": "Licenciatura que aborda o mundo dos computadores e as suas aplicações"
+        }
+    },
+    {
+        "model": "portfolio.aluno",
+        "pk": 1,
+        "fields": {
+            "nome": "Rafael Magalhães",
+            "numero": "22407372",
+            "ano": 2,
+            "licenciatura": 1,
+            "formacao_texto": "Nenhuma"
+        }
+    },
+    {
+        "model": "portfolio.professor",
+        "pk": 1,
+        "fields": {
+            "nome": "Pedro Alves",
+            "unidades_curriculares": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "portfolio.professor",
+        "pk": 2,
+        "fields": {
+            "nome": "Bruno Cipriano",
+            "unidades_curriculares": []
+        }
+    },
+    {
+        "model": "portfolio.professor",
+        "pk": 3,
+        "fields": {
+            "nome": "Daniel Fernandes",
+            "unidades_curriculares": []
+        }
+    },
+    {
+        "model": "portfolio.professor",
+        "pk": 4,
+        "fields": {
+            "nome": "Lucio Struder",
+            "unidades_curriculares": []
+        }
+    },
+    {
+        "model": "portfolio.professor",
+        "pk": 5,
+        "fields": {
+            "nome": "João Caldeira",
+            "unidades_curriculares": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "portfolio.professor",
+        "pk": 6,
+        "fields": {
+            "nome": "Duarte Neves",
+            "unidades_curriculares": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "portfolio.tecnologia",
+        "pk": 1,
+        "fields": {
+            "nome": "Phyton",
+            "tipo": "linguagem de programação de alto nível",
+            "descricao": "conhecido pela sua sintaxe simples e legibilidade, sendo amplamente utilizado devido à sua versatilidade em diversas áreas da tecnologia",
+            "site": "https://www.python.org/",
+            "interesse": 8
+        }
+    },
+    {
+        "model": "portfolio.tecnologia",
+        "pk": 2,
+        "fields": {
+            "nome": "Java",
+            "tipo": "linguagem de programação de alto nível",
+            "descricao": "crucial no desenvolvimento de aplicações corporativas, back-end web, Android, e sistemas de grande escalabilidade",
+            "site": "https://www.java.com/pt-BR/download/",
+            "interesse": 9
+        }
+    },
+    {
+        "model": "portfolio.tecnologia",
+        "pk": 3,
+        "fields": {
+            "nome": "C",
+            "tipo": "linguagem de programação de alto nível",
+            "descricao": "conhecida pela sua alta performance, sendo amplamente utilizada para criar sistemas operacionais, drivers e aplicações embutidas",
+            "site": "https://www.jetbrains.com/clion/",
+            "interesse": 6
+        }
+    },
+    {
+        "model": "portfolio.tecnologia",
+        "pk": 4,
+        "fields": {
+            "nome": "Assembly",
+            "tipo": "linguagem de programação de baixo nível",
+            "descricao": "está muito próximo do funcionamento interno do processador (CPU) e da memória",
+            "site": "https://assembly.pt/",
+            "interesse": 7
+        }
+    },
+    {
+        "model": "portfolio.tecnologia",
+        "pk": 5,
+        "fields": {
+            "nome": "Kotlin",
+            "tipo": "linguagem de programação de alto nível",
+            "descricao": "muito utilizada tanto no desenvolvimento back-end (Spring) quanto no front-end mobile (Android), com capacidade crescente de cross-platform",
+            "site": "https://kotlinlang.org/",
+            "interesse": 8
+        }
+    },
+    {
+        "model": "portfolio.tecnologia",
+        "pk": 6,
+        "fields": {
+            "nome": "SQL",
+            "tipo": "linguagem de consulta estruturada",
+            "descricao": "a linguagem padrão universal para interagir com bases de dados que organizam informações em tabelas de linhas e colunas",
+            "site": "https://www.microsoft.com/en-us/sql-server/sql-server-downloads",
+            "interesse": 4
+        }
+    },
+    {
+        "model": "portfolio.projeto",
+        "pk": 2,
+        "fields": {
+            "titulo": "Great Programming Journey",
+            "descricao": "jogo de tabuleiro com a mesma jogabilidade do das cobras e escadas",
+            "data_de_realizacao": "2025-12-18",
+            "link": "https://github.com/RafaelMagalhaes22407372/Projeto-LP2-Parte2-2.0",
+            "tecnologias": [
+                2,
+                5
+            ]
+        }
+    },
+    {
+        "model": "portfolio.projeto",
+        "pk": 3,
+        "fields": {
+            "titulo": "IMDB_DEISI",
+            "descricao": "base de dados onde estão armazenados filmes e informação sobre os mesmos",
+            "data_de_realizacao": "2024-05-30",
+            "link": "https://www.microsoft.com/en-us/sql-server/sql-server-downloads",
+            "tecnologias": [
+                6
+            ]
+        }
+    },
+    {
+        "model": "portfolio.projeto",
+        "pk": 4,
+        "fields": {
+            "titulo": "Balões em Linha",
+            "descricao": "jogo do 4 em linha com algumas regras diferentes",
+            "data_de_realizacao": "2024-05-30",
+            "link": "https://github.com/CreativeMonk541/4-row-balloons-/tree/main/Projeto2",
+            "tecnologias": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "portfolio.unidadecurricular",
+        "pk": 1,
+        "fields": {
+            "nome": "Linguagem de Programação II",
+            "descricao": "aborda com maior profundidade a linguagem de programação java",
+            "creditos": 8,
+            "imagem": "transferir_1.jpg",
+            "professores": [
+                1,
+                6
+            ],
+            "projetos": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "portfolio.unidadecurricular",
+        "pk": 2,
+        "fields": {
+            "nome": "Base de Dados",
+            "descricao": "unidade curricular que aborda a manipulação de dados, consulta e armazenamento",
+            "creditos": 8,
+            "imagem": "",
+            "professores": [
+                5
+            ],
+            "projetos": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "portfolio.competencia",
+        "pk": 1,
+        "fields": {
+            "nome": "Kotlin",
+            "tipo": "linguagem de programação",
+            "nivel": 6,
+            "experiencia": 4,
+            "projetos": []
+        }
+    },
+    {
+        "model": "portfolio.competencia",
+        "pk": 2,
+        "fields": {
+            "nome": "Java",
+            "tipo": "linguagem de programação",
+            "nivel": 8,
+            "experiencia": 4,
+            "projetos": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "receita.receita",
+        "pk": 1,
+        "fields": {
+            "nome": "Esparquete",
+            "duracao": 120
+        }
+    }
+]
