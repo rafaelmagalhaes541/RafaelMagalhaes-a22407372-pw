@@ -5,24 +5,35 @@
 
 <section>
     {% for uc in unidades %}
-    <article>
-        <h3>{{ uc.nome }}</h3>
-        <p>{{ uc.descricao }}</p>
-        <p>Créditos: {{ uc.creditos }}</p>
+    <article class="uc-card">
 
-        <h4>Professores</h4>
-        <ul>
-            {% for prof in uc.professores.all %}
+        {% if uc.imagem %}
+        <div class="uc-img">
+            <img src="{{ uc.imagem.url }}" alt="{{ uc.nome }}">
+        </div>
+        {% endif %}
+
+        <div class="uc-info">
+            <h3>{{ uc.nome }}</h3>
+
+            <p>{{ uc.descricao }}</p>
+            <p>Créditos: {{ uc.creditos }}</p>
+
+            <h4>Professores</h4>
+            <ul>
+                {% for prof in uc.professores.all %}
                 <li>{{ prof.nome }}</li>
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
 
-        <h4>Projetos</h4>
-        <ul>
-            {% for proj in uc.projetos.all %}
+            <h4>Projetos</h4>
+            <ul>
+                {% for proj in uc.projetos.all %}
                 <li>{{ proj.titulo }}</li>
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
+        </div>
+
     </article>
     {% endfor %}
 </section>

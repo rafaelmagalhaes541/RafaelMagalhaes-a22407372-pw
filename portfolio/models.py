@@ -60,7 +60,7 @@ class UnidadeCurricular(models.Model):
     professores = models.ManyToManyField(Professor)
     descricao = models.CharField(max_length=200)
     creditos = models.IntegerField()
-    imagem = models.ImageField(null=True, blank=True)
+    imagem = models.ImageField(upload_to='unidadecurricular/', null=True, blank=True)
     projetos = models.ManyToManyField(Projeto)
 
     def __str__(self):

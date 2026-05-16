@@ -27,7 +27,3 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('artigos/', include('artigos.urls')),   
 ]
-
-# Serve ficheiros media em DEBUG
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

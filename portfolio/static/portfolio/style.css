@@ -325,3 +325,24 @@ header {
     width: 70%;
     padding: 8px;
 }
+
+.uc-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.uc-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.uc-info {
+    flex: 1;
+}
